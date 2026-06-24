@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# techinterview-funnel
 
-## Getting Started
+기술면접 VOD Sender 이메일 퍼널 웹앱. PDF 기출문제 자료집 → 이메일 캡처 → Sender 시퀀스 → 인프런 VOD 구매.
 
-First, run the development server:
+## 퍼널 구조
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+SNS → / (PDF 스퀴즈 페이지) → /thank-you → Sender 이메일 시퀀스 → 인프런 VOD
+                                           └ Day 5 이메일: /webinar/watch?ref=email_seq
+
+SNS 웨비나 캠페인 → /webinar (등록 폼) → /webinar/watch
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 페이지
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| URL | 역할 |
+|---|---|
+| `/` | PDF 기출문제 자료집 스퀴즈 페이지 |
+| `/thank-you` | 등록 완료 + 인프런 소프트 셀 |
+| `/webinar` | 웨비나 등록 폼 (Phase B) |
+| `/webinar/watch` | 웨비나 시청 (기존 리드 직접 접근) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 로컬 설정
 
-## Learn More
+```bash
+# 의존성 설치
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# secondbrain docs 심볼릭 링크 생성
+bash scripts/setup-docs-link.sh
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 환경변수 설정
+cp .env.local.example .env.local
+# .env.local 파일에 실제 토큰 입력
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 개발 서버 실행
+npm run dev
+```
 
-## Deploy on Vercel
+설계 문서는 `./docs/` (→ `~/secondbrain/20_Business/기술면접-vod/docs/`) 에 있습니다.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 환경변수
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`.env.local.example` 참조.
+
+| 변수 | 설명 |
+|---|---|
+| `NEXT_PUBLIC_MIXPANEL_TOKEN` | Mixpanel 프로젝트 토큰 |
+| `SENDER_API_KEY` | Sender API 키 (API 방식 연동 시) |
+
+## Sender 연동
+
+`src/components/SenderForm.tsx`에 TODO 마커가 있습니다.  
+Sender 대시보드에서 폼 임베드 코드를 받아 교체하거나, API 방식으로 연동하세요.
+
+## Mixpanel 이벤트
+
+| 이벤트 | 발생 시점 |
+|---|---|
+| `page_view` | 스퀴즈 페이지 진입 |
+| `form_focus` | 이메일 폼 첫 클릭 |
+| `form_submit` | 등록 완료 |
+| `thank_you_view` | 감사 페이지 진입 |
+| `webinar_register_view` | 웨비나 등록 페이지 진입 |
+| `webinar_watch_view` | 웨비나 시청 페이지 진입 |
+| `video_play` | 웨비나 영상 재생 시작 |
+| `inflearn_click` | 인프런 구매 링크 클릭 |
+
+`acquisition_path` 유저 프로퍼티로 경로별 전환율 분리 측정:
+- `email_seq` — 이메일 시리즈 경로
+- `webinar_cold` — SNS 웨비나 캠페인 경로
