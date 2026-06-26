@@ -24,6 +24,9 @@ export default function ThankYouPage() {
             <p className="text-sm text-amber-700">
               <strong>스팸함을 꼭 확인해주세요!</strong> 자동 분류로 스팸함에 들어가는 경우가 있습니다.
             </p>
+            <p className="mt-1 text-sm text-amber-700">
+              스팸함에 있다면 <strong>스팸 해제</strong>를 눌러주세요. 이후 이메일이 정상 수신됩니다.
+            </p>
             <p className="mt-2 text-xs text-amber-600">
               발신자: 개발자H &lt;developerh4807@freefromjob.kr&gt;
             </p>
