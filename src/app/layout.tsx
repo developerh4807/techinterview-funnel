@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${geist.variable} h-full antialiased`}>
       <body className="min-h-full bg-white text-gray-900">
-        <MixpanelProvider>{children}</MixpanelProvider>
+        <MixpanelProvider funnelId="techinterview">{children}</MixpanelProvider>
       </body>
     </html>
   )
