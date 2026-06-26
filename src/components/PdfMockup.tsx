@@ -7,7 +7,7 @@ export function PdfMockup() {
       <div className={styles.scene}>
         <div className={styles.book}>
           <Image
-            src="/images/free_bait_cover.png"
+            src="/free_bait_cover.png"
             alt="기술면접 합격 대비 가이드 PDF"
             width={2400}
             height={3396}
