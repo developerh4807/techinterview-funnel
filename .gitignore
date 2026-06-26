@@ -48,3 +48,4 @@ next-env.d.ts
 content/**/*.png
 content/**/*.jpg
 content/**/*.jpeg
+public/images/

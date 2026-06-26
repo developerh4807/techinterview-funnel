@@ -1,21 +1,22 @@
 import { PageTracker } from '@/components/PageTracker'
+import { PdfMockup } from '@/components/PdfMockup'
 import { SenderForm } from '@/components/SenderForm'
 
 const TESTIMONIALS = [
   {
     name: '이○○ · 백엔드 개발자',
     text: '꼬리질문이 왜 나오는지, 어떻게 대응해야 하는지 처음으로 이해했어요. 덕분에 최종 합격했습니다.',
-    company: '네이버 합격',
+    company: '중견기업 최종 합격',
   },
   {
     name: '박○○ · 주니어 개발자',
     text: '자료집 보고 내가 왜 3번이나 탈락했는지 바로 알았습니다. 답변 구조부터 다시 잡았어요.',
-    company: '카카오 합격',
+    company: '스타트업 최종 합격',
   },
   {
     name: '김○○ · 경력 2년',
     text: '면접관 시각으로 정리된 기출 분석이 핵심이에요. 준비 방향이 완전히 달라졌습니다.',
-    company: '토스 합격',
+    company: 'IT 기업 최종 합격',
   },
 ]
 
@@ -48,26 +49,25 @@ export default function SqueezePage() {
         <section className="bg-gradient-to-b from-slate-900 to-slate-800 px-4 py-16 text-white">
           <div className="mx-auto max-w-2xl text-center">
             <p className="mb-4 inline-block rounded-full bg-amber-400 px-4 py-1 text-sm font-semibold text-slate-900">
-              무료 PDF 자료집
+              개발자 취업 전문 멘토의 방법론을 그대로!
             </p>
             <h1 className="mb-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-              기술면접, 열심히 준비해도
+              기술면접에서 계속 떨어지는 건
               <br />
-              왜 계속 떨어질까?
+              아는 게 부족해서가 아닙니다
             </h1>
             <p className="mb-10 text-lg text-slate-300">
-              면접관이 실제로 채점하는 기준을 모르기 때문입니다.
+              꼬리질문 한 마디에 막히고, 아는 내용도 두서없이 말하고,
               <br />
-              실전 기출문제 자료집으로 탈락 원인부터 파악하세요.
+              면접관이 실제로 뭘 보는지 모르기 때문입니다.
+              <br />
+              합격자들이 쓰는 3-WAY 시스템과 기술검토 방법, 지금 무료로 받아가세요.
             </p>
 
-            {/* TODO: 실제 PDF 표지 이미지로 교체 */}
-            <div className="mx-auto mb-10 flex h-48 w-36 items-center justify-center rounded-lg border-2 border-dashed border-slate-600 text-slate-500 sm:h-56 sm:w-44">
-              <span className="text-sm">PDF 표지 이미지</span>
-            </div>
+            <PdfMockup />
 
             <div className="mx-auto max-w-md">
-              <SenderForm ctaText="무료 자료집 받기 →" />
+              <SenderForm ctaText="3-WAY 시스템 무료로 받기 →" />
             </div>
           </div>
         </section>
@@ -76,24 +76,24 @@ export default function SqueezePage() {
         <section className="bg-white px-4 py-16">
           <div className="mx-auto max-w-2xl">
             <h2 className="mb-10 text-center text-2xl font-bold text-slate-900">
-              기술면접 탈락, 3가지 진짜 원인
+              아는데도 떨어지는 데에는 이유가 있습니다
             </h2>
             <div className="grid gap-6 sm:grid-cols-3">
               {[
                 {
                   icon: '❓',
-                  title: '꼬리질문 대응 못 함',
-                  desc: '첫 답변은 괜찮은데 "그럼 이건요?" 한 마디에 무너집니다.',
+                  title: '꼬리질문이 시작되면 무너진다',
+                  desc: '"HashMap이 뭔가요?"는 답했습니다. "그럼 HashCode 충돌 처리는요?" — 이 한 마디에 막힙니다. 면접관은 바로 그 순간 결정합니다.',
                 },
                 {
                   icon: '📋',
-                  title: '답변 구조가 없음',
-                  desc: '아는 내용인데도 두서없이 말하다 끝납니다. 면접관에게는 "모른다"로 들립니다.',
+                  title: '아는 내용도 면접장에서 정리가 안 된다',
+                  desc: '공부할 때는 분명히 이해했는데, 말로 하면 두서가 없습니다. 면접관 귀에는 "이 사람 모른다"로 들립니다.',
                 },
                 {
                   icon: '🎯',
-                  title: '면접관 시각을 모름',
-                  desc: '무엇을 보려고 이 질문을 하는지 모르면 맞는 답을 해도 틀리게 됩니다.',
+                  title: '면접관이 뭘 보려고 이 질문을 하는지 모른다',
+                  desc: 'OS 스케줄링을 줄줄 외웠는데 떨어졌습니다. 면접관은 암기를 본 게 아니었습니다. 질문 의도를 모르면 맞는 답도 틀린 답이 됩니다.',
                 },
               ].map((item) => (
                 <div
@@ -113,14 +113,14 @@ export default function SqueezePage() {
         <section className="bg-slate-50 px-4 py-16">
           <div className="mx-auto max-w-2xl">
             <h2 className="mb-8 text-center text-2xl font-bold text-slate-900">
-              자료집에 담긴 내용
+              이 자료집을 읽고 나면
             </h2>
             <ul className="space-y-4">
               {[
-                '실전 기출문제 — 자료구조·OS·네트워크·DB·Spring 영역별 정리',
-                '탈락 원인 분석 — 실제 면접에서 흔히 나오는 실수 패턴',
-                '꼬리질문 흐름 — 질문이 어떻게 이어지는지 대화 예시로 수록',
-                '합격 답변 구조 — 면접관이 원하는 답변 포맷 정리',
+                '꼬리질문이 오히려 기회가 됩니다 — 3-WAY 시스템으로 어떤 꼬리질문에도 3가지 응답 경로 중 하나를 선택할 수 있습니다. 실제 대화 예시로 흐름을 통째로 수록했습니다.',
+                '면접관의 채점 기준이 보입니다 — 실제 기술검토 예시로 "이 질문, 무엇을 보려는 건지"가 처음으로 이해됩니다.',
+                '내가 왜 떨어졌는지 정확히 알게 됩니다 — 탈락 원인 패턴 분석으로 자신의 면접에서 어디서 점수를 잃었는지 보입니다.',
+                '합격 답변 구조를 그대로 쓸 수 있습니다 — 자료구조·OS·네트워크·DB·Spring 영역별로 면접관이 원하는 답변 포맷을 정리했습니다.',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-green-500">✓</span>
@@ -173,9 +173,9 @@ export default function SqueezePage() {
         {/* ── BOTTOM CTA ── */}
         <section className="bg-slate-900 px-4 py-16 text-white">
           <div className="mx-auto max-w-md text-center">
-            <h2 className="mb-4 text-2xl font-bold">지금 무료로 받아보세요</h2>
-            <p className="mb-8 text-slate-300">기술면접 준비의 방향을 먼저 잡으세요.</p>
-            <SenderForm ctaText="무료 자료집 받기 →" />
+            <h2 className="mb-4 text-2xl font-bold">3-WAY 시스템, 지금 무료로 가져가세요</h2>
+            <p className="mb-8 text-slate-300">이 자료집 하나가 면접 준비의 방향을 바꿉니다. 먼저 읽고 시작하세요.</p>
+            <SenderForm ctaText="3-WAY 시스템 무료로 받기 →" />
           </div>
         </section>
 
