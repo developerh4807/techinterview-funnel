@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>표지 - 합격을 부르는 기술면접 대비 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 800px;
+    height: 1132px; /* A4 비율 */
+    overflow: hidden;
+    background: #0a0f1e;
+    font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif;
+  }
+
+  .cover {
+    width: 800px;
+    height: 1132px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0d1b3e 0%, #0a0f1e 45%, #0d1b3e 100%);
+  }
+
+  /* 배경 장식 원 */
+  .bg-circle-1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+    top: -150px;
+    right: -150px;
+  }
+  .bg-circle-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);
+    bottom: -100px;
+    left: -100px;
+  }
+
+  /* 격자 패턴 */
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* 상단 태그 */
+  .top-tag {
+    position: absolute;
+    top: 52px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .tag-badge {
+    background: rgba(59,130,246,0.2);
+    border: 1px solid rgba(59,130,246,0.4);
+    color: #93c5fd;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+
+  /* 메인 콘텐츠 */
+  .main-content {
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    top: 140px;
+  }
+
+  .category-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .category-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3b82f6;
+  }
+  .category-text {
+    color: #60a5fa;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .main-title {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.25;
+    color: #ffffff;
+    margin-bottom: 24px;
+    word-break: keep-all;
+    letter-spacing: -1px;
+  }
+  .main-title .highlight {
+    color: #60a5fa;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    word-break: keep-all;
+    margin-bottom: 52px;
+  }
+
+  /* 구분선 */
+  .divider {
+    width: 56px;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #6366f1);
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+
+  /* 포인트 리스트 */
+  .point-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 60px;
+  }
+  .point-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .point-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(59,130,246,0.2);
+    border: 1px solid rgba(59,130,246,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .point-icon svg {
+    width: 11px;
+    height: 11px;
+  }
+  .point-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+  }
+
+  /* 저자 섹션 */
+  .author-section {
+    position: absolute;
+    bottom: 64px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .author-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+  }
+  .author-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+  }
+  .author-desc {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+  }
+  .free-badge {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  /* 하단 장식 라인 */
+  .bottom-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+  }
+</style>
+</head>
+<body>
+<div class="cover">
+  <!-- 배경 -->
+  <div class="bg-grid"></div>
+  <div class="bg-circle-1"></div>
+  <div class="bg-circle-2"></div>
+
+  <!-- 상단 태그 -->
+  <div class="top-tag">
+    <span class="tag-badge">Free E-Book</span>
+  </div>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="main-content">
+    <div class="category-line">
+      <div class="category-dot"></div>
+      <span class="category-text">개발자 취업 · 기술면접</span>
+    </div>
+
+    <h1 class="main-title">
+      <span class="highlight">합격을 부르는</span><br>
+      기술면접<br>
+      대비 가이드
+    </h1>
+
+    <p class="subtitle">
+      면접관 출신 현업 개발자가 알려주는<br>
+      개발자 기술면접 실전 대비전략
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="point-list">
+      <div class="point-item">
+        <div class="point-icon">
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M2 6l3 3 5-5" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="point-text">100명 이상의 면접관 경험에서 뽑은 핵심 전략</span>
+      </div>
+      <div class="point-item">
+        <div class="point-icon">
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M2 6l3 3 5-5" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="point-text">꼬리질문 대응 방법 수록</span>
+      </div>
+      <div class="point-item">
+        <div class="point-icon">
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M2 6l3 3 5-5" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="point-text">합격률을 높이는 답변 구조 & 실전 예시</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 저자 -->
+  <div class="author-section">
+    <div class="author-info">
+      <div class="author-avatar">H</div>
+      <div>
+        <div class="author-name">개발자H</div>
+        <div class="author-desc">현업 개발자 · 취업 멘토 · 500만 서비스 운영</div>
+      </div>
+    </div>
+    <div class="free-badge">무료 배포</div>
+  </div>
+
+  <!-- 하단 저자 표시 -->
+  <div style="
+    position: absolute;
+    bottom: 12px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 2px;
+    z-index: 10;
+  ">개발자H</div>
+
+  <div class="bottom-accent"></div>
+</div>
+</body>
+</html>
