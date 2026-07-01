@@ -17,3 +17,12 @@ export function setOnce(key: string, value: string) {
     // not initialized yet
   }
 }
+
+export function register(props: Record<string, unknown>) {
+  if (typeof window === 'undefined') return
+  try {
+    mixpanel.register(props)
+  } catch {
+    // not initialized yet
+  }
+}
