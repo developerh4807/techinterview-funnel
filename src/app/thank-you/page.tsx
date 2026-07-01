@@ -17,18 +17,60 @@ export default function ThankYouPage() {
           </h1>
 
           {/* Spam callout */}
-          <div className="mb-10 rounded-xl border-2 border-amber-400 bg-amber-50 px-6 py-4 text-left">
-            <p className="mb-1 font-bold text-amber-800">
-              📬 이메일이 안 보이시나요?
+          <div className="mb-10 rounded-xl border-2 border-amber-400 bg-amber-50 px-6 py-5 text-left">
+            <p className="mb-1 text-lg font-bold text-amber-900">
+              📬 메일함에 안 보이시나요? 3분이면 해결됩니다
             </p>
-            <p className="text-sm text-amber-700">
-              <strong>스팸함을 꼭 확인해주세요!</strong> 자동 분류로 스팸함에 들어가는 경우가 있습니다.
+            <p className="mb-4 text-sm text-amber-700">
+              자동 필터 때문에 <strong>스팸함(또는 프로모션함)</strong>으로 들어가는 경우가 많습니다.
+              아래 방법대로 <strong>딱 한 번만</strong> 처리해두시면, 이후 이메일(Day 1~5)까지 전부 받은편지함으로 정상 수신됩니다.
             </p>
-            <p className="mt-1 text-sm text-amber-700">
-              스팸함에 있다면 <strong>스팸 해제</strong>를 눌러주세요. 이후 이메일이 정상 수신됩니다.
-            </p>
-            <p className="mt-2 text-xs text-amber-600">
-              발신자: 개발자H &lt;developerh4807@freefromjob.kr&gt;
+
+            <ol className="mb-4 space-y-2 text-sm text-amber-800">
+              <li>
+                <strong>① 스팸함 확인:</strong> 메일함에서 &lsquo;스팸함&rsquo;(또는 Gmail은 &lsquo;프로모션함&rsquo;)을 열어 발신자{' '}
+                <strong>개발자H (developerh4807@freefromjob.kr)</strong> 메일을 찾아주세요.
+              </li>
+              <li>
+                <strong>② 스팸 해제:</strong> 메일을 열고 &lsquo;스팸 아님&rsquo; 또는 &lsquo;정상메일로 이동&rsquo; 버튼을 눌러주세요.
+              </li>
+              <li>
+                <strong>③ 주소록에 추가:</strong> 발신자 주소(developerh4807@freefromjob.kr)를 연락처/주소록에 추가하면
+                이후 메일도 스팸함으로 가지 않습니다.
+              </li>
+            </ol>
+
+            <div className="grid gap-3 border-t border-amber-200 pt-4 sm:grid-cols-2">
+              <div>
+                <p className="mb-1 text-xs font-bold uppercase tracking-wide text-amber-600">Gmail</p>
+                <p className="text-xs leading-relaxed text-amber-700">
+                  프로모션 탭이나 스팸함에서 메일을 열고 상단의 <strong>&lsquo;스팸 아님&rsquo;</strong> 클릭.
+                  프로모션 탭에 있다면 메일을 <strong>받은편지함 탭으로 드래그</strong>하면 다음부터 바로 받은편지함에 도착해요.
+                </p>
+              </div>
+              <div>
+                <p className="mb-1 text-xs font-bold uppercase tracking-wide text-amber-600">네이버 메일</p>
+                <p className="text-xs leading-relaxed text-amber-700">
+                  좌측 <strong>스팸메일함</strong> 진입 → 메일 선택 후 상단 <strong>&lsquo;정상메일으로 이동&rsquo;</strong> 클릭.
+                </p>
+              </div>
+              <div>
+                <p className="mb-1 text-xs font-bold uppercase tracking-wide text-amber-600">다음(카카오) 메일</p>
+                <p className="text-xs leading-relaxed text-amber-700">
+                  좌측 <strong>스팸편지함</strong> 진입 → 메일 선택 후 <strong>&lsquo;정상편지함으로 복사&rsquo;</strong> 클릭.
+                </p>
+              </div>
+              <div>
+                <p className="mb-1 text-xs font-bold uppercase tracking-wide text-amber-600">Outlook / Hotmail</p>
+                <p className="text-xs leading-relaxed text-amber-700">
+                  <strong>정크 메일</strong> 폴더에서 메일 선택 → <strong>&lsquo;정크 메일 아님&rsquo;</strong>으로 표시.
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-4 border-t border-amber-200 pt-3 text-xs text-amber-600">
+              그래도 안 보이면 발신자에게 <strong>답장(회신)을 한 번 보내주세요.</strong> 스팸 필터가 &lsquo;신뢰할 수 있는 발신자&rsquo;로 학습해
+              이후 메일부터 정상 수신될 확률이 크게 올라갑니다.
             </p>
           </div>
 
